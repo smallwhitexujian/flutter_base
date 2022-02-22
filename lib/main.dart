@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base/framework/utils/mmkv/mmkv_utils.dart';
 
 void main() {
+  MmkvUtils.instance.init("");
   runApp(const MyApp());
 }
 
@@ -57,8 +59,16 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
+      setMMKv();
       _counter++;
     });
+  }
+
+  void setMMKv() {
+    MmkvUtils.instance.saveString("key$_counter", "sada$_counter");
+    print(
+        "-------------------<" + MmkvUtils.instance.getString("key$_counter")!);
+    print("-------------------<" + MmkvUtils.instance.mmkv!.allKeys.toString());
   }
 
   @override
@@ -108,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.face_unlock_sharp),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
