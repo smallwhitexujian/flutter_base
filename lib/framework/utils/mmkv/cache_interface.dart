@@ -25,19 +25,19 @@ abstract class CacheInterface {
       MMKVMode mode = MMKVMode.SINGLE_PROCESS_MODE,
       String? cryptKey});
 
-  saveBool(String key, bool value);
+  void saveBool(String key, bool value);
 
   ///当[value]不会大于普通int32时使用此选项。
   ///它效率更高，占用的空间更少。
-  saveInt32(String key, int value);
+  void saveInt32(String key, int value);
 
-  saveInt(String key, int value);
+  void saveInt(String key, int value);
 
-  saveString(String key, String value);
+  void saveString(String key, String value);
 
-  saveDouble(String key, double value);
+  void saveDouble(String key, double value);
 
-  saveBytes(String key, {String? value, MMBuffer? mmBuffer});
+  void saveBytes(String key, {String? value, MMBuffer? mmBuffer});
 
   String? getString(String key);
 

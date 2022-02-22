@@ -1,13 +1,12 @@
 //mmkv 工具类
 
 import 'dart:convert';
-
 import 'package:flutter_base/framework/lib_base.dart';
 import 'package:flutter_base/framework/utils/mmkv/cache_interface.dart';
 
-class MmkvUtils extends CacheInterface {
-  late MMKV? mmkv;
-  late var rootDir = "";
+class MMKVUtils extends CacheInterface {
+  MMKV? mmkv;
+  var rootDirs = "";
 
   ///MMKV必须先初始化后才能使用。
   ///。
@@ -32,9 +31,9 @@ class MmkvUtils extends CacheInterface {
       MMKVLogLevel logLevel = MMKVLogLevel.Info,
       MMKVMode mode = MMKVMode.SINGLE_PROCESS_MODE,
       String? cryptKey}) async {
-    rootDir = await MMKV.initialize(
+    rootDirs = await MMKV.initialize(
         logLevel: logLevel, rootDir: rootDir, groupDir: groupDir);
-    if (rootDir.isNotEmpty) {
+    if (rootDirs.isNotEmpty) {
       if (mmapID.isEmpty) {
         _createMMKV("");
       } else {
@@ -48,7 +47,7 @@ class MmkvUtils extends CacheInterface {
   ///* 传入[MMKVMode.MULTI_PROCESS_MODE]即可获取多进程MMKV实例。
   ///* 您可以使用[cryptKey]进行加密，最大不能超过16个字节。
   ///* 您可以自定义文件的[rootDir]。修改文件存放路径
-  MmkvUtils _createMMKV(String mmapID,
+  MMKVUtils _createMMKV(String mmapID,
       {MMKVMode mode = MMKVMode.SINGLE_PROCESS_MODE,
       String? cryptKey,
       String? rootDir}) {
@@ -66,20 +65,20 @@ class MmkvUtils extends CacheInterface {
   }
 
   //工厂管理instance对象 需要手动返回构造对象的时候就需要工厂模式，普通的方法返回默认创建对象
-  factory MmkvUtils() => _getInstance();
+  factory MMKVUtils() => _getInstance();
 
   //重命名 instance 指代 _getInstance();
-  static MmkvUtils get instance => _getInstance();
+  static MMKVUtils get instance => _getInstance();
 
   //静态实例对象,用于存放唯一对象
-  static MmkvUtils? _instance;
+  static MMKVUtils? _instance;
 
   //flutter无法初始化自己的构造函数,用私有方法重命名一个构造方法
-  MmkvUtils._internal();
+  MMKVUtils._internal();
 
   //单例模式懒汉模式
-  static MmkvUtils _getInstance() {
-    _instance ??= MmkvUtils._internal();
+  static MMKVUtils _getInstance() {
+    _instance ??= MMKVUtils._internal();
     return _instance!;
   }
 

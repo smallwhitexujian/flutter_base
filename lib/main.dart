@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base/framework/config/env_config.dart';
 import 'package:flutter_base/framework/utils/mmkv/mmkv_utils.dart';
 
 void main() {
-  MmkvUtils.instance.init("");
-  runApp(const MyApp());
+  init().then((value) => {runApp(const MyApp())});
+}
+
+//程序初始化入口
+Future<dynamic> init() async {
+  MMKVUtils.instance.init("");
+  EnvConfig()
+      .initConfig(status: EnvStatus.dev, devhost: "http://www.baidu.com/");
+  return "";
 }
 
 class MyApp extends StatelessWidget {
@@ -65,10 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void setMMKv() {
-    MmkvUtils.instance.saveString("key$_counter", "sada$_counter");
-    print(
-        "-------------------<" + MmkvUtils.instance.getString("key$_counter")!);
-    print("-------------------<" + MmkvUtils.instance.mmkv!.allKeys.toString());
+    print("===>" + EnvConfig().getEnvConfigStatus().toString());
+    print("===>" + EnvConfig().getEnvHostUrl().toString());
+    print("===>" + MMKVUtils.instance.mmkv!.allKeys.toString());
   }
 
   @override
@@ -85,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
