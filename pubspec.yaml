@@ -42,6 +42,8 @@ dependencies:
   mmkv: ^1.2.13
   # toast
   fluttertoast: ^8.0.8
+  # 设备信息获取
+  device_info_plus: ^3.2.2
 
 dev_dependencies:
   flutter_test:

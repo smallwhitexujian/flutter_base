@@ -7,6 +7,7 @@ class ToastImpl extends ToastInterface {
   FToast? fToast;
   BuildContext? context;
 
+  @override
   void initToast(BuildContext? context) {
     if (context != null) {
       this.context = context;
