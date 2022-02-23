@@ -1,4 +1,4 @@
-import 'package:flutter_base/framework/utils/cache_constant.dart';
+import 'package:flutter_base/framework/utils/mmkv/cache_constant.dart';
 import 'package:flutter_base/framework/utils/mmkv/mmkv_utils.dart';
 
 /// 软件开发环境切换

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base/example/toast/toast_context.dart';
+import 'package:flutter_base/example/toast/toast_no_context.dart';
 import 'package:flutter_base/framework/config/env_config.dart';
 import 'package:flutter_base/framework/utils/mmkv/mmkv_utils.dart';
-import 'package:flutter_base/framework/utils/toastUtils/toast_impl.dart';
 
 void main() {
   init().then((value) => {runApp(const MyApp())});
@@ -81,15 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
     print("===>" + MMKVUtils.instance.mmkv!.allKeys.toString());
   }
 
-  late ToastImpl toast;
-
-  @override
-  void initState() {
-    super.initState();
-    toast = ToastImpl();
-    toast.initToast(context);
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -137,18 +129,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                toast.showShort("sasdasdasdasd");
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ToastNoContext(),
+                ));
               },
-              child: const Text("showShort"),
+              child: const Text("Flutter Toast No Context"),
             ),
             const SizedBox(
               height: 24.0,
             ),
             ElevatedButton(
               onPressed: () {
-                toast.showBottom("asddasdasdasdasasdasdasdasasdasdasdasas");
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ToastContext(),
+                ));
               },
-              child: const Text("showBottom"),
+              child: const Text("Flutter Toast Context"),
             ),
           ],
         ),
