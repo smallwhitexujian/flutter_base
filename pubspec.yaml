@@ -44,6 +44,10 @@ dependencies:
   fluttertoast: ^8.0.8
   # 设备信息获取
   device_info_plus: ^3.2.2
+  # 权限检查库
+  permission_handler: ^9.2.0
+  # dialog
+  flutter_custom_dialog: ^1.2.0
 
 dev_dependencies:
   flutter_test:
