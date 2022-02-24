@@ -98,25 +98,28 @@ class ToastImpl extends ToastInterface {
     } else {
       ///toast view展示
       Widget toast = Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min, //warp_content
         children: [
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 20.0, vertical: 10.0), //填充
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 0, 0, 0), //设置填充颜色
-                  borderRadius: BorderRadius.circular(25.0)), //填充颜色
+          Flexible(
+              //防止界面超出
+              child: Center(
+                  child: Card(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            color: backgroundColor ??= Colors.black87,
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               child: Text(
                 msg,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    backgroundColor: const Color.fromARGB(255, 0, 0, 0),
                     fontSize: fontSize ??= 16.0,
                     color: textColor ??= Colors.white),
               ),
             ),
-          )
+          )))
         ],
       );
       showCustom(toast,
@@ -124,19 +127,6 @@ class ToastImpl extends ToastInterface {
           duration: Duration(seconds: duration));
     }
   }
-
-  //  const Icon(Icons.check),
-  // const SizedBox(
-  //   width: 12.0,
-  // ),
-  // IconButton(
-  //   icon: const Icon(
-  //     Icons.close,
-  //   ),
-  //   color: Colors.white,
-  //   onPressed: () {
-  //     cancelToast();
-  //   },
 
   @override
   void cancelToast() {
