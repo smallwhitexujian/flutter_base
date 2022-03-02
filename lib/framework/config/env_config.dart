@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_base/framework/utils/mmkv/cache_constant.dart';
 import 'package:flutter_base/framework/utils/mmkv/mmkv_utils.dart';
 
@@ -18,23 +21,24 @@ class EnvConfig {
   /// * [prohost] 表示正式环境地址默认为空
   /// * [devhost] 表示开发环境地址默认为空
   /// * [prehost] 表示预发布环境地址默认为空
-  void initConfig(
+  Future<void> initConfig(
       {EnvStatus status = EnvStatus.release,
       String prohost = "",
       String devhost = "",
-      String prehost = ""}) {
+      String prehost = ""}) async {
     if (status != EnvStatus.release) {
-      setEnvConfigStatus(status);
+      _setEnvConfigStatus(status);
     }
-    setEnvHostConifg(hostPro: prohost, hostDev: devhost, hostPre: prehost);
+    _setEnvHostConifg(hostPro: prohost, hostDev: devhost, hostPre: prehost);
   }
 
-  void setEnvConfigStatus(EnvStatus env) {
+  ///保存状态库
+  Future<void> _setEnvConfigStatus(EnvStatus env) async {
     MMKVUtils.instance.saveString(CacheConstant.evnstatus, env.name);
   }
 
   ///获取当前开发环境是开发,预发，还是生产
-  getEnvConfigStatus() {
+  Future<EnvStatus> getEnvConfigStatus() async {
     var num = MMKVUtils.instance.getString(CacheConstant.evnstatus);
     if (num != null) {
       if (num.contains(EnvStatus.dev.name)) {
@@ -46,6 +50,12 @@ class EnvConfig {
       }
     }
     return EnvStatus.release;
+  }
+
+  ///获取当前环境是正式版本
+  Future<bool> isReleaseEnvStatus() async {
+    EnvStatus envStatus = await getEnvConfigStatus();
+    return envStatus == EnvStatus.release;
   }
 
   ///获取hostUrl
@@ -66,10 +76,17 @@ class EnvConfig {
     return _proHost;
   }
 
+  ///是否显示切换服务器环境的UI
+  ///什么情况下显示切换环境的按钮？
+  ///isReleaseServerEnv=false时
+  static bool isShowSwitchServerEnvUI() {
+    return (MMKVUtils.instance.getString(CacheConstant.evnstatus) != null);
+  }
+
   String _devHost = "";
   String _preHost = "";
   String _proHost = "";
-  void setEnvHostConifg(
+  void _setEnvHostConifg(
       {String hostDev = "", String hostPre = "", required String hostPro}) {
     _devHost = hostDev;
     _preHost = hostPre;
