@@ -5,13 +5,14 @@ import 'package:flutter_base/framework/utils/toastUtils/taost_interface.dart';
 
 class ToastImpl extends ToastInterface {
   FToast? fToast;
-  BuildContext? context;
-
+  bool _isDebug = false;
+  BuildContext? _context;
   @override
-  void initToast(BuildContext? context) {
+  void initToast(BuildContext? context, bool isDebug) {
     if (context != null) {
-      this.context = context;
       fToast = FToast();
+      _isDebug = isDebug;
+      _context = context;
       fToast!.init(context);
     }
   }
@@ -42,6 +43,17 @@ class ToastImpl extends ToastInterface {
   }
 
   @override
+  void showDebugView(String msg) {
+    if (_isDebug) {
+      showToast(
+          msg: msg,
+          toastLength: Toast.LENGTH_LONG,
+          duration: 5,
+          backgroundColor: Colors.deepOrange);
+    }
+  }
+
+  @override
   void showCustom(Widget child,
       {ToastGravity? toastGravity, Duration? duration}) {
     fToast?.showToast(
@@ -51,7 +63,6 @@ class ToastImpl extends ToastInterface {
   }
 
   ///没有上下文的使用的Toast
-  @override
   void showToastForIosWeb(
       {required String msg, //展示内容
       Toast? toastLength, //持续时间
@@ -74,7 +85,6 @@ class ToastImpl extends ToastInterface {
     );
   }
 
-  @override
   void showToast(
       {required String msg, //展示内容
       Toast? toastLength, //持续时间
@@ -85,7 +95,7 @@ class ToastImpl extends ToastInterface {
       Color? textColor, //字体颜色
       bool webShowClose = false //是否展示web关闭按钮
       }) {
-    if (context == null) {
+    if (_context == null) {
       showToastForIosWeb(
           msg: msg,
           toastLength: toastLength ??= Toast.LENGTH_SHORT,
@@ -130,10 +140,16 @@ class ToastImpl extends ToastInterface {
 
   @override
   void cancelToast() {
-    if (context == null) {
+    if (_context == null) {
       Fluttertoast.cancel();
     } else {
       fToast?.removeCustomToast();
     }
+  }
+
+  @override
+  void clear() {
+    fToast = null;
+    _context = null;
   }
 }
