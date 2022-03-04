@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_base/example/toast/toast_context.dart';
 import 'package:flutter_base/example/toast/toast_no_context.dart';
@@ -77,9 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void setMMKv() {
-    print("===>" + EnvConfig().getEnvConfigStatus().toString());
-    print("===>" + EnvConfig().getEnvHostUrl().toString());
-    print("===>" + MMKVUtils.instance.mmkv!.allKeys.toString());
+    log("===>" + EnvConfig().getEnvConfigStatus().toString());
+    log("===>" + EnvConfig().getEnvHostUrl().toString());
+    log("===>" + MMKVUtils.instance.mmkv!.allKeys.toString());
   }
 
   @override

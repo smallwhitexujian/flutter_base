@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +30,7 @@ class NavigatorUtils {
       }
       function(value);
     }).catchError((onError) {
-      print("$onError");
+      log("$onError");
     });
   }
 
@@ -46,7 +48,7 @@ class NavigatorUtils {
       }
       function(value);
     }).catchError((onError) {
-      print("$onError");
+      log("$onError");
     });
   }
 
@@ -83,12 +85,12 @@ class NavigatorUtils {
     });
     String paramStr = bufferStr.toString();
     paramStr = paramStr.substring(0, paramStr.length - 1);
-    print("传递的参数  $paramStr");
+    log("传递的参数  $paramStr");
     return "$registerPath?$paramStr";
   }
 
   static void goWebViewPage(BuildContext context, String title, String url) {
-    //TODO fluro 不支持传中文，需要转换格式
-    // Uri.encodeComponent(component)
+    ///TODO fluro 不支持传中文，需要转换格式
+    /// Uri.encodeComponent(component)
   }
 }

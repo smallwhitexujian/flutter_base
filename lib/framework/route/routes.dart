@@ -30,7 +30,7 @@ class Routes {
         if (index == 0) {
           query = "?";
         } else {
-          query = query + "\&";
+          query = query + "&";
         }
         query += "$key=$value";
         index++;

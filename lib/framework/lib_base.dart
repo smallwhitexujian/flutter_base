@@ -16,3 +16,6 @@ export 'package:permission_handler/permission_handler.dart';
 export 'package:fluro/fluro.dart';
 //屏幕适配
 export 'package:flutter_screenutil/flutter_screenutil.dart';
+
+///网络请求dio
+export 'package:flutter_dio_module/lib_dio.dart';

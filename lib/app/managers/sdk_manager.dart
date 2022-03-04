@@ -40,7 +40,7 @@ class SdkManager {
   ///https://github.com/OpenFlutter/flutter_screenutil/blob/master/README_CN.md
   static Widget initScreenUtil(Widget Function() builder) {
     return ScreenUtilInit(
-      designSize: Size(360, 690),
+      designSize: const Size(360, 690),
       builder: builder,
     );
   }
