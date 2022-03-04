@@ -24,11 +24,15 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
     return Method.Post;
   }
 
+  //参数配置
+  Map<String, dynamic> getParam();
+
   ///网络请求部分
   doNewwrok(BuildContext context) {
     rxDio.setUrl(getUrl());
     rxDio.setCacheMode(getCacheModel());
     rxDio.setRequestMethod(getMethod());
+    rxDio.setParams(getParam());
     rxDio.asStreams<T>().listen((event) {
       if (event.responseType == ResponseTypes.ERROR) {
         //错误统一处理
