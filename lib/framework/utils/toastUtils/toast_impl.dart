@@ -5,13 +5,18 @@ import 'package:flutter_base/framework/utils/toastUtils/taost_interface.dart';
 
 class ToastImpl extends ToastInterface {
   FToast? fToast;
-  bool _isDebug = false;
+  static bool _isDebug = false;
   BuildContext? _context;
+
   @override
-  void initToast(BuildContext? context, bool isDebug) {
+  void setDebugState(bool isdebug) {
+    _isDebug = isdebug;
+  }
+
+  @override
+  void initToast(BuildContext? context) {
     if (context != null) {
       fToast = FToast();
-      _isDebug = isDebug;
       _context = context;
       fToast!.init(context);
     }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_base/app/common/app_constants.dart';
 import 'package:flutter_base/app/managers/sdk_manager.dart';
+import 'package:flutter_base/framework/lib_base.dart';
 
 ///应用入口 Application
 ///
@@ -34,22 +35,24 @@ class _AppState extends State<App> {
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }
 
-    return MaterialApp(
-      // Scaffold 定义导航头部和页面主要内容
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true, // 标题居中
-          title: const Text(AppConstants.appName),
-          titleTextStyle: const TextStyle(color: Colors.black),
-        ),
-      ),
-      theme: ThemeData(
-        //导航栏和状态栏的颜色
-        primaryColor: Colors.white,
-        //主题颜色
-        primarySwatch: AppConstants.white,
-      ),
-    );
+    return SdkManager.initScreenUtil(() => MultiProvider(
+        providers: [],
+        child: MaterialApp(
+          // Scaffold 定义导航头部和页面主要内容
+          home: Scaffold(
+            appBar: AppBar(
+              centerTitle: true, // 标题居中
+              title: const Text(AppConstants.appName),
+              titleTextStyle: const TextStyle(color: Colors.black),
+            ),
+          ),
+          theme: ThemeData(
+            //导航栏和状态栏的颜色
+            primaryColor: Colors.white,
+            //主题颜色
+            primarySwatch: AppConstants.white,
+          ),
+        )));
   }
 
   @override

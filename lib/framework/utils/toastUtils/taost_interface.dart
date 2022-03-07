@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 
 abstract class ToastInterface {
-  void initToast(BuildContext? context, bool isDebug);
+  void initToast(BuildContext? context);
+
+  void setDebugState(bool isdebug);
 
   void showLong(String msg);
 

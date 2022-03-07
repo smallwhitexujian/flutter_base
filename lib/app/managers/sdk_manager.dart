@@ -8,7 +8,7 @@ import 'package:flutter_base/framework/route/base_router.dart';
 /// @description 依赖的三方库管理工具
 class SdkManager {
   //实例化
-  SdkManager.create();
+  SdkManager();
 
   static Future<void> init(BuildContext context) async {
     //初始路由框架

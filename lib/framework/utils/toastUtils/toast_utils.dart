@@ -5,28 +5,25 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 ///toast
 class ToastUtils extends ToastInterface {
-  // factory ToastUtils() => _getIntstance();
-
-  // ToastUtils._create();
-
-  // static ToastUtils? _instance;
-
-  // static ToastUtils get instance => _getIntstance();
-
-  // static ToastUtils _getIntstance() {
-  //   _instance ??= ToastUtils._create();
-  //   return _instance!;
-  // }
-
   ToastUtils();
 
-  ToastImpl? toastImpl;
-  @override
-  void initToast(BuildContext? context, bool isDebug) {
-    if (toastImpl == null) {
-      toastImpl = ToastImpl();
-      toastImpl?.initToast(context, isDebug);
+  static ToastInterface? toastImpl = ToastImpl();
+
+  void init(bool isDebug, {ToastInterface? toast}) {
+    if (toast != null) {
+      toastImpl = toast;
     }
+    setDebugState(isDebug);
+  }
+
+  @override
+  void setDebugState(bool isdebug) {
+    toastImpl?.setDebugState(isdebug);
+  }
+
+  @override
+  void initToast(BuildContext? context) {
+    toastImpl?.initToast(context);
   }
 
   @override

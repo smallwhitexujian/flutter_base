@@ -19,3 +19,9 @@ export 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///网络请求dio
 export 'package:flutter_dio_module/lib_dio.dart';
+
+///状态刷新管理
+// export 'package:consumer/consumer.dart';
+
+///provider
+export 'package:provider/provider.dart';

@@ -53,6 +53,10 @@ dependencies:
   # 屏幕适配方案
   flutter_screenutil: ^5.3.1
 
+  # consumer 就是为你准备的一款高性能、极简的状态管理库。
+  # consumer: ^2.3.0
+    provider: ^6.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

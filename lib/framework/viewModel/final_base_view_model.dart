@@ -17,6 +17,11 @@ abstract class FinalBaseViewModel extends ChangeNotifier {
   ///保存请求token，用于页面关闭时取消请求
   List<CancelToken> cancelTokenList = [];
 
+  ///通知ChangeNotifier 会触发addListener();
+  ///addListener(() {
+  ///    //数值改变的监听
+  ///       print('YM------>新数值:${_counter.count}');
+  ///    });
   @override
   void notifyListeners() {
     if (!_isDispose) {
