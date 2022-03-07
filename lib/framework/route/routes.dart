@@ -5,6 +5,10 @@ import '../lib_base.dart';
 class Routes {
   static FluroRouter router = FluroRouter();
 
+  static FluroRouter getFluroRouter() {
+    return router;
+  }
+
   ///应用启动时初始化路由
   static void initRouters() {
     router.notFoundHandler =

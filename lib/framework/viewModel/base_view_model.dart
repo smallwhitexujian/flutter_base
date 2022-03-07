@@ -56,7 +56,7 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
   }
 
   //参数配置
-  Map<String, dynamic> getParam();
+  Map<String, dynamic>? getParam();
 
   ///网络请求部分
   doNewwrok(BuildContext context) {

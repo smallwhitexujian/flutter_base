@@ -4,6 +4,7 @@ class AppConstants {
   AppConstants.create();
   //配置一些App相关常量信息
   static const String appName = 'Nigo';
+  static const String hosturl = "http://api.whqx1.com/";
 
 //白色主题
   static const MaterialColor white = MaterialColor(

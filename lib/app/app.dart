@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_base/app/common/app_constants.dart';
 import 'package:flutter_base/app/managers/sdk_manager.dart';
+import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
 import 'package:flutter_base/framework/lib_base.dart';
+import 'package:flutter_base/framework/route/routes.dart';
 
 ///应用入口 Application
-///
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
 
@@ -36,23 +37,20 @@ class _AppState extends State<App> {
     }
 
     return SdkManager.initScreenUtil(() => MultiProvider(
-        providers: [],
-        child: MaterialApp(
-          // Scaffold 定义导航头部和页面主要内容
-          home: Scaffold(
-            appBar: AppBar(
-              centerTitle: true, // 标题居中
-              title: const Text(AppConstants.appName),
-              titleTextStyle: const TextStyle(color: Colors.black),
-            ),
-          ),
-          theme: ThemeData(
-            //导航栏和状态栏的颜色
-            primaryColor: Colors.white,
-            //主题颜色
-            primarySwatch: AppConstants.white,
-          ),
-        )));
+            providers: [
+              ChangeNotifierProvider.value(value: SplashViewModel()),
+            ],
+            child: MaterialApp(
+              // Scaffold 定义导航头部和页面主要内容
+              onGenerateRoute: Routes.router.generator,
+              ///home 这里不需要设置如果设置了 router 默认跳转启动界面不生效。
+              theme: ThemeData(
+                //导航栏和状态栏的颜色
+                primaryColor: Colors.white,
+                //主题颜色
+                primarySwatch: AppConstants.white,
+              ),
+            )));
   }
 
   @override

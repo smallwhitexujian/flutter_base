@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_base/app/common/app_constants.dart';
+import 'package:flutter_base/app/route/route_utils.dart';
 import 'package:flutter_base/framework/base_lib_plugin.dart';
 import 'package:flutter_base/framework/config/env_config.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 import 'package:flutter_base/framework/route/base_router.dart';
 
-/// @data
+/// @data 初始化以及入口
 /// @description 依赖的三方库管理工具
 class SdkManager {
   //实例化
@@ -13,6 +15,11 @@ class SdkManager {
   static Future<void> init(BuildContext context) async {
     //初始路由框架
     BaseRouter.setRouter(FluroRouter());
+    //注册表 注册
+    RouteUtils.registerRoute();
+
+    await GlobalConfig.intstance
+        .initConfig(AppConstants.hosturl, isDebug: await _isDebug());
 
     ///一些三方库或者插件初始化
     await _initLibs(context);
