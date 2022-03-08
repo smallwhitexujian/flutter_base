@@ -1,7 +1,7 @@
 import 'package:flutter_base/app/common/service_api/api_config.dart';
 import 'package:flutter_base/app/route/route_utils.dart';
+import 'package:flutter_base/app/route/routes_constants.dart';
 import 'package:flutter_base/framework/lib_base.dart';
-import 'package:flutter_base/framework/route/routes.dart';
 import 'package:flutter_base/framework/viewModel/base_view_model.dart';
 
 class SplashViewModel extends BaseViewModel {
@@ -26,7 +26,7 @@ class SplashViewModel extends BaseViewModel {
   }
 
   Future<void>? goNext(content) {
-    return Routes.navigateTo(content, RouteUtils.loginPage,
+    return RouteUtils.goNavigateTo(content, RoutesConstants.homePage,
         clearStack: true, replace: true);
   }
 }
