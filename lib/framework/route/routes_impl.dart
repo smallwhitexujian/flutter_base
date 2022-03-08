@@ -2,16 +2,16 @@ import 'package:flutter/widgets.dart';
 
 import '../lib_base.dart';
 
-class Routes {
-  static FluroRouter router = FluroRouter();
+class Routesimpl {
+  static final FluroRouter _router = FluroRouter();
 
   static FluroRouter getFluroRouter() {
-    return router;
+    return _router;
   }
 
   ///应用启动时初始化路由
   static void initRouters() {
-    router.notFoundHandler =
+    _router.notFoundHandler =
         Handler(handlerFunc: (context, Map<String, List<String>> params) {
       throw Exception("ROUTE NOT FOUND");
     });
@@ -42,7 +42,7 @@ class Routes {
       path = path + query;
     }
 
-    return router.navigateTo(
+    return _router.navigateTo(
       context,
       path,
       replace: replace,

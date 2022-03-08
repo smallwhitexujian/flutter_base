@@ -9,7 +9,7 @@ class ToastUtils extends ToastInterface {
 
   static ToastInterface? toastImpl = ToastImpl();
 
-  void init(bool isDebug, {ToastInterface? toast}) {
+  void initConfig(bool isDebug, {ToastInterface? toast}) {
     if (toast != null) {
       toastImpl = toast;
     }

@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
 import 'package:flutter_base/framework/lib_base.dart';
-import 'package:flutter_base/framework/utils/assets_utils.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -33,7 +30,7 @@ class _SplashViewState extends State<SplashView>
 
     _animation.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.completed) {
-        // _context.read<SplashViewModel>().goNext(_context);
+        _context.read<SplashViewModel>().goNext(_context);
       }
     });
     super.initState();
@@ -53,8 +50,8 @@ class _SplashViewState extends State<SplashView>
             child: Center(
               child: Image.asset(
                 AssetsUtils.loadAssetsImg('logo'),
-                width: 100,
-                height: 100,
+                width: 200,
+                height: 200,
               ),
             ),
           );

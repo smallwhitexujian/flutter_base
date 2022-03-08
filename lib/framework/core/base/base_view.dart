@@ -79,6 +79,7 @@ class BaseView<T extends BaseViewModel> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ///Consumer widget 唯一必须的参数就是 builder。当 ChangeNotifier 发生变化的时候会调用 builder 这个函数。（换言之，当你在模型中调用 notifyListeners() 时，所有和 Consumer 相关的 builder 方法都会被调用。）
     return Consumer<T>(
         child: child,
         builder: (BuildContext context, T viewModel, Widget? child) {

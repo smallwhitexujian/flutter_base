@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_base/app/common/app_constants.dart';
 import 'package:flutter_base/app/managers/sdk_manager.dart';
 import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
+import 'package:flutter_base/app/route/route_utils.dart';
 import 'package:flutter_base/framework/lib_base.dart';
-import 'package:flutter_base/framework/route/routes.dart';
 
 ///应用入口 Application
 class App extends StatefulWidget {
@@ -42,7 +42,7 @@ class _AppState extends State<App> {
             ],
             child: MaterialApp(
               // Scaffold 定义导航头部和页面主要内容
-              onGenerateRoute: Routes.router.generator,
+              onGenerateRoute: RouteUtils.getGenerators, //指定路由启动页面默认root
               ///home 这里不需要设置如果设置了 router 默认跳转启动界面不生效。
               theme: ThemeData(
                 //导航栏和状态栏的颜色

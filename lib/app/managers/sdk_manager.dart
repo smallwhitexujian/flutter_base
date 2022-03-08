@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_base/app/common/app_constants.dart';
 import 'package:flutter_base/app/route/route_utils.dart';
+import 'package:flutter_base/app/route/routes_constants.dart';
 import 'package:flutter_base/framework/base_lib_plugin.dart';
 import 'package:flutter_base/framework/config/env_config.dart';
 import 'package:flutter_base/framework/lib_base.dart';
@@ -16,7 +17,7 @@ class SdkManager {
     //初始路由框架
     BaseRouter.setRouter(FluroRouter());
     //注册表 注册
-    RouteUtils.registerRoute();
+    RouteUtils.registerRoute(RoutesConstants.list);
 
     await GlobalConfig.intstance
         .initConfig(AppConstants.hosturl, isDebug: await _isDebug());

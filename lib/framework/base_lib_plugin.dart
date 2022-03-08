@@ -27,7 +27,7 @@ class BaseLibPlugin {
       ToastInterface? toast}) async {
     _isDebug = isDebug;
     _resConfig = resConfig;
-    ToastUtils().init(_isDebug, toast: toast);
+    ToastUtils().initConfig(_isDebug, toast: toast);
   }
 
   ///应用关闭时调用该方法
