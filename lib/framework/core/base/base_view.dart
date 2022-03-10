@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_base/framework/base_lib_plugin.dart';
 import 'package:flutter_base/framework/lib_base.dart';
-import 'package:flutter_base/framework/viewModel/base_view_model.dart';
 
 import '../ui_state/load_empty_view.dart';
 import '../ui_state/load_error_view.dart';

@@ -7,7 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 class ToastUtils extends ToastInterface {
   ToastUtils();
 
-  static ToastInterface? toastImpl = ToastImpl();
+  ToastInterface? toastImpl = ToastImpl();
 
   void initConfig(bool isDebug, {ToastInterface? toast}) {
     if (toast != null) {

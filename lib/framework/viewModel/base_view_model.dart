@@ -44,7 +44,9 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
     return _controller;
   }
 
-  String getUrl();
+  String getUrl() {
+    return "";
+  }
 
   ///缓存模型
   CacheMode getCacheModel() {
@@ -56,7 +58,9 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
   }
 
   //参数配置
-  Map<String, dynamic>? getParam();
+  Map<String, dynamic>? getParam() {
+    return null;
+  }
 
   ///网络请求部分
   doNewwrok(BuildContext context) {
@@ -90,17 +94,17 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
       _isComplete = true;
     }
 
-    ///判断是否已经添加了通知监听器,如果没有添加则添加一个,如果已经添加则不需要再次添加
-    ///监听器作用就是使用viewModel.notifyListeners();既可以主动请求接口
-    if (changeNotifyCallback == null) {
-      changeNotifyCallback = () {
-        doNewwrok(context);
-      };
+    // ///判断是否已经添加了通知监听器,如果没有添加则添加一个,如果已经添加则不需要再次添加
+    // ///监听器作用就是使用viewModel.notifyListeners();既可以主动请求接口
+    // if (changeNotifyCallback == null) {
+    //   changeNotifyCallback = () {
+    //     doNewwrok(context);
+    //   };
 
-      ///通过viewModel[notifyListeners] 通知到listener进行刷新
-      ///addListener监听注册网络请求触发.
-      addListener(changeNotifyCallback!);
-    }
+    //   ///通过viewModel[notifyListeners] 通知到listener进行刷新
+    //   ///addListener监听注册网络请求触发.
+    //   addListener(changeNotifyCallback!);
+    // }
   }
 
   ///请求是否成功

@@ -1,6 +1,5 @@
 import 'package:flutter_base/app/module/home/view/home_main.dart';
 import 'package:flutter_base/app/module/splash/view/splash_view.dart';
-import 'package:flutter_base/app/route/route_utils.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 
 ///路由注册表

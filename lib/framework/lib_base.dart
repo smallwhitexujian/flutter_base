@@ -29,3 +29,12 @@ export 'package:provider/provider.dart';
 //------------------------------------------------------------------------------
 export 'package:flutter_base/framework/route/routes_impl.dart';
 export 'package:flutter_base/framework/utils/assets_utils.dart';
+export 'package:flutter_base/framework/route/base_router.dart';
+export 'package:flutter_base/framework/route/route_utils.dart';
+export 'package:flutter_base/app/common/app_constants.dart';
+export 'package:flutter_base/app/managers/sdk_manager.dart';
+export 'package:flutter_dio_module/lib_dio.dart';
+export 'package:flutter_base/framework/lib_base.dart';
+export 'package:flutter_base/framework/viewModel/base_view_model.dart';
+export 'package:flutter_base/framework/config/env_config.dart';
+export 'package:flutter_base/framework/viewModel/base_view_model.dart';

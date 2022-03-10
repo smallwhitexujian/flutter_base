@@ -8,6 +8,8 @@ import 'package:flutter_base/framework/lib_base.dart';
 class RouteUtils {
   //注册,路由都需要注册相应的地址
   static void registerRoute(List<DefineConfig> list) {
+    //初始路由框架
+    BaseRouter.setRouter(FluroRouter());
     for (var item in RoutesConstants.list) {
       Routesimpl.getFluroRouter().define(
         item.url,

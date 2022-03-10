@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
+import 'package:flutter_base/app/module/splash/view_models/auto_login_view_model.dart';
 import 'package:flutter_base/framework/core/ui_state/load_empty_view.dart';
 import 'package:flutter_base/framework/utils/toastUtils/toast_utils.dart';
 
@@ -13,13 +13,13 @@ class HomeMain extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) {
-          return SplashViewModel();
+          return AutoLoginViewModel(context);
         }),
       ],
       child: _MainView(),
       builder: (context, child) {
         return WillPopScope(
-          onWillPop: context.read<SplashViewModel>().onWillPop(function: () {
+          onWillPop: context.read<AutoLoginViewModel>().onWillPop(function: () {
             ToastUtils()
               ..initToast(context)
               ..showCenter("请再次点击返回按钮即可退出");

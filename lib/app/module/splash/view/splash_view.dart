@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_base/app/module/splash/view_models/auto_login_view_model.dart';
 import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 
@@ -30,7 +33,7 @@ class _SplashViewState extends State<SplashView>
 
     _animation.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.completed) {
-        _context.read<SplashViewModel>().goNext(_context);
+        _context.read<AutoLoginViewModel>().goNext(_context);
       }
     });
     super.initState();
@@ -39,25 +42,25 @@ class _SplashViewState extends State<SplashView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ChangeNotifierProvider(
-        create: (_) {
-          return SplashViewModel();
-        },
-        builder: (context, child) {
-          _context = context;
-          return FadeTransition(
-            opacity: _animation,
-            child: Center(
-              child: Image.asset(
-                AssetsUtils.loadAssetsImg('logo'),
-                width: 200,
-                height: 200,
-              ),
+        body: MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: SplashViewModel(context)),
+        ChangeNotifierProvider.value(value: AutoLoginViewModel(context))
+      ],
+      builder: (context, child) {
+        _context = context;
+        return FadeTransition(
+          opacity: _animation,
+          child: Center(
+            child: Image.asset(
+              AssetsUtils.loadAssetsImg('logo'),
+              width: 200,
+              height: 200,
             ),
-          );
-        },
-      ),
-    );
+          ),
+        );
+      },
+    ));
   }
 
   @override

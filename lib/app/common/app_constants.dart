@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 
+///全局静态变量
 class AppConstants {
-  AppConstants.create();
-  //配置一些App相关常量信息
-  static const String appName = 'Nigo';
-  static const String hosturl = "http://api.whqx1.com/";
-
 //白色主题
-  static const MaterialColor white = MaterialColor(
+  static MaterialColor white = const MaterialColor(
     0xFFFFFFFF,
     <int, Color>{
       50: Color(0xFFFFFFFF),
@@ -23,7 +19,7 @@ class AppConstants {
     },
   );
 //黑色主题
-  static const MaterialColor black = MaterialColor(
+  static MaterialColor black = const MaterialColor(
     0xFFFFFFFF,
     <int, Color>{
       50: Color(0xFF000000),

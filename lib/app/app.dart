@@ -2,10 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_base/app/common/app_constants.dart';
-import 'package:flutter_base/app/managers/sdk_manager.dart';
 import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
-import 'package:flutter_base/app/route/route_utils.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 
 ///应用入口 Application
@@ -38,7 +35,7 @@ class _AppState extends State<App> {
 
     return SdkManager.initScreenUtil(() => MultiProvider(
             providers: [
-              ChangeNotifierProvider.value(value: SplashViewModel()),
+              ChangeNotifierProvider.value(value: SplashViewModel(context)),
             ],
             child: MaterialApp(
               // Scaffold 定义导航头部和页面主要内容

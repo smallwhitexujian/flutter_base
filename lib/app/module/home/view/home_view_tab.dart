@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base/app/module/splash/view/splash_view.dart';
-import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
+import 'package:flutter_base/app/module/splash/view_models/auto_login_view_model.dart';
 import 'package:flutter_base/framework/core/base/base_view.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 import 'package:flutter_base/framework/utils/screen_utils.dart';
@@ -24,13 +24,13 @@ class _HomeViewTabState extends State<HomeViewTab> {
   ];
 
   final _tabViews = [
-    const BaseView<SplashViewModel>(
+    const BaseView<AutoLoginViewModel>(
       child: SplashView(),
     ),
-    const BaseView<SplashViewModel>(
+    const BaseView<AutoLoginViewModel>(
       child: SplashView(),
     ),
-    const BaseView<SplashViewModel>(
+    const BaseView<AutoLoginViewModel>(
       child: SplashView(),
     ),
   ];
@@ -44,9 +44,7 @@ class _HomeViewTabState extends State<HomeViewTab> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) {
-          return SplashViewModel();
-        }),
+        ChangeNotifierProvider.value(value: AutoLoginViewModel(context))
       ],
       builder: (context, child) {
         return Theme(
