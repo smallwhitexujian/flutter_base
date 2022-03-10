@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_base/app/module/splash/view_models/auto_login_view_model.dart';
 import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
