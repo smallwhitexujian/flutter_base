@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 
 ///应用入口 Application
@@ -33,21 +32,17 @@ class _AppState extends State<App> {
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }
 
-    return SdkManager.initScreenUtil(() => MultiProvider(
-            providers: [
-              ChangeNotifierProvider.value(value: voidViewModel()),
-            ],
-            child: MaterialApp(
-              // Scaffold 定义导航头部和页面主要内容
-              onGenerateRoute: RouteUtils.getGenerators, //指定路由启动页面默认root
-              ///home 这里不需要设置如果设置了 router 默认跳转启动界面不生效。
-              theme: ThemeData(
-                //导航栏和状态栏的颜色
-                primaryColor: Colors.white,
-                //主题颜色
-                primarySwatch: AppConstants.white,
-              ),
-            )));
+    return SdkManager.initScreenUtil(() => MaterialApp(
+          // Scaffold 定义导航头部和页面主要内容
+          onGenerateRoute: RouteUtils.getGenerators, //指定路由启动页面默认root
+          ///home 这里不需要设置如果设置了 router 默认跳转启动界面不生效。
+          theme: ThemeData(
+            //导航栏和状态栏的颜色
+            primaryColor: Colors.white,
+            //主题颜色
+            primarySwatch: AppConstants.white,
+          ),
+        ));
   }
 
   @override
@@ -56,5 +51,3 @@ class _AppState extends State<App> {
     SdkManager.dispose();
   }
 }
-
-class voidViewModel extends BaseViewModel {}
