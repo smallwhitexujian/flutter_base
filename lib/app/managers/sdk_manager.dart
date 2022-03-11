@@ -18,7 +18,7 @@ class SdkManager {
     RxDioConfig()
       ..setDebugConfig(await _isDebug())
       ..setHost(Global.getAppConfig().hosturl)
-      ..setJsonConvert(jsonConvert)
+      ..setJsonConvert(JsonConvertB()) //解析桥接
       ..setUserCacheConfig(true);
 
     ///一些三方库或者插件初始化
@@ -64,5 +64,12 @@ class SdkManager {
       designSize: const Size(360, 690),
       orientation: Orientation.portrait,
     );
+  }
+}
+
+class JsonConvertB extends IJsonConvert {
+  @override
+  M? fromJsonAsT<M>(json) {
+    return JsonConvert.fromJsonAsT(json);
   }
 }

@@ -37,7 +37,7 @@ dependencies:
 
   #======================others====================
   #网络请求
-  flutter_dio_module: ^1.1.3
+  flutter_dio_module: ^1.1.4
   # mmkv 
   mmkv: ^1.2.13
   # toast

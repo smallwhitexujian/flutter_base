@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_base/app/common/Global.dart';
 import 'package:flutter_base/app/module/splash/bean/prod_config_json_entity.dart';

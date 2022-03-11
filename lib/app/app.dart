@@ -35,7 +35,7 @@ class _AppState extends State<App> {
 
     return SdkManager.initScreenUtil(() => MultiProvider(
             providers: [
-              ChangeNotifierProvider.value(value: SplashViewModel(context)),
+              ChangeNotifierProvider.value(value: voidViewModel()),
             ],
             child: MaterialApp(
               // Scaffold 定义导航头部和页面主要内容
@@ -56,3 +56,5 @@ class _AppState extends State<App> {
     SdkManager.dispose();
   }
 }
+
+class voidViewModel extends BaseViewModel {}

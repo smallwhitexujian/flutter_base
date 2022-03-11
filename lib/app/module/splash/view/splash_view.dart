@@ -43,7 +43,7 @@ class _SplashViewState extends State<SplashView>
         body: MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: SplashViewModel(context)),
-        ChangeNotifierProvider.value(value: AutoLoginViewModel(context))
+        ChangeNotifierProvider.value(value: AutoLoginViewModel(context)),
       ],
       builder: (context, child) {
         _context = context;
