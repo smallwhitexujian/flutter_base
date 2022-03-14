@@ -37,9 +37,9 @@ abstract class FinalBaseViewModel extends ChangeNotifier {
   ///页面关闭时回调该方式，释放资源
   @override
   void dispose() {
-    super.dispose();
     rxDio.cancelList(cancelTokenList);
     _isDispose = true;
+    super.dispose();
   }
 
   ///首页处理返回按钮逻辑

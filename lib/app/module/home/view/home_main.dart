@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/app/module/splash/view_models/auto_login_view_model.dart';
+import 'package:flutter_base/app/module/home/view_models/home_view_model.dart';
 import 'package:flutter_base/framework/core/ui_state/load_empty_view.dart';
 import 'package:flutter_base/framework/utils/toastUtils/toast_utils.dart';
 
@@ -13,13 +13,13 @@ class HomeMain extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) {
-          return AutoLoginViewModel(context);
+          return HomeViewModel();
         }),
       ],
       child: _MainView(),
       builder: (context, child) {
         return WillPopScope(
-          onWillPop: context.read<AutoLoginViewModel>().onWillPop(function: () {
+          onWillPop: context.read<HomeViewModel>().onWillPop(function: () {
             ToastUtils()
               ..initToast(context)
               ..showCenter("请再次点击返回按钮即可退出");
@@ -36,7 +36,8 @@ class _MainView extends StatefulWidget {
   _MainViewState createState() => _MainViewState();
 }
 
-class _MainViewState extends State<_MainView> {
+class _MainViewState extends State<_MainView>
+    with SingleTickerProviderStateMixin {
   ///当前显示的页面索引
   int _currentIndex = 0;
   late PageController _pageController;
@@ -58,10 +59,27 @@ class _MainViewState extends State<_MainView> {
     ///我的
     const LoadEmptyView(null),
   ];
-
+  late AnimationController _controller;
+  late Animation<double> _animation;
   @override
   void initState() {
     super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    _animation = Tween(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(_controller);
+
+    _controller.forward();
+
+    _animation.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.completed) {}
+    });
+
     _currentIndex = 0;
     _pageController = PageController(initialPage: _currentIndex);
   }

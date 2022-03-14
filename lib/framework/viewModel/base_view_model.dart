@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_base/framework/utils/toastUtils/toast_utils.dart';
 import 'package:flutter_base/framework/viewModel/final_base_view_model.dart';
 
@@ -33,7 +33,7 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
     return _isComplete;
   }
 
-  T? dataBean;
+  T? _dataBean;
 
   StreamController<T>? _controller;
   BaseViewModel() {
@@ -83,7 +83,7 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
           //正常返回结果
           _isLoadDataFail = false;
           _isLoadDateSuccess = true;
-          dataBean = event.data;
+          _dataBean = event.data;
           _controller?.add(event.data!);
         }
       });
@@ -110,7 +110,7 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
   ///请求是否成功
   bool isSuccess() {
     if (_isLoadDateSuccess && !_isLoadDataFail && _isComplete) {
-      return dataBean != null;
+      return _dataBean != null;
     } else {
       return false;
     }
@@ -124,16 +124,19 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
   ///请求数据是否为空
   bool isEmpty() {
     if (_isLoadDateSuccess && !_isLoadDataFail && _isComplete) {
-      return dataBean == null;
+      return _dataBean == null;
     } else {
-      return dataBean == null;
+      return _dataBean == null;
     }
   }
 
   @override
   void dispose() {
+    _dataBean = null;
+    if (!_controller!.isClosed) {
+      _controller?.close();
+    }
     super.dispose();
-    _controller?.close();
   }
 }
 

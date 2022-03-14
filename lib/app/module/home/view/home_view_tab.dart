@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/app/module/splash/view/splash_view.dart';
-import 'package:flutter_base/app/module/splash/view_models/auto_login_view_model.dart';
-import 'package:flutter_base/framework/core/base/base_view.dart';
+import 'package:flutter_base/app/module/home/view_models/home_view_model.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 import 'package:flutter_base/framework/utils/screen_utils.dart';
 
@@ -23,17 +21,7 @@ class _HomeViewTabState extends State<HomeViewTab> {
     const Tab(child: Text('排行')),
   ];
 
-  final _tabViews = [
-    const BaseView<AutoLoginViewModel>(
-      child: SplashView(),
-    ),
-    const BaseView<AutoLoginViewModel>(
-      child: SplashView(),
-    ),
-    const BaseView<AutoLoginViewModel>(
-      child: SplashView(),
-    ),
-  ];
+  final _tabViews = [HomeViewTab(), HomeViewTab(), HomeViewTab()];
 
   @override
   void initState() {
@@ -43,9 +31,7 @@ class _HomeViewTabState extends State<HomeViewTab> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: AutoLoginViewModel(context))
-      ],
+      providers: [ChangeNotifierProvider.value(value: HomeViewModel())],
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(

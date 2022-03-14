@@ -38,3 +38,5 @@ export 'package:flutter_base/framework/lib_base.dart';
 export 'package:flutter_base/framework/viewModel/base_view_model.dart';
 export 'package:flutter_base/framework/config/env_config.dart';
 export 'package:flutter_base/framework/viewModel/base_view_model.dart';
+export 'package:flutter_base/framework/utils/common_utils.dart';
+export 'package:flutter_base/framework/base_lib_plugin.dart';

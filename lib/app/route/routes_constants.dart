@@ -14,8 +14,7 @@ class RoutesConstants {
   ///[widget] 必须要给
   static List<DefineConfig> list = [
     //启动界面
-    DefineConfig(root, const SplashView(),
-        transitionType: TransitionType.fadeIn),
+    DefineConfig(root, SplashView(), transitionType: TransitionType.fadeIn),
     //首页
     DefineConfig(homePage, const HomeMain())
   ];
