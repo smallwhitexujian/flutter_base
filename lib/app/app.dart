@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_base/framework/lib_base.dart';
+import 'package:flutter_base/generated/i18n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 ///应用入口 Application
 class App extends StatefulWidget {
@@ -42,6 +44,17 @@ class _AppState extends State<App> {
             //主题颜色
             primarySwatch: AppConstants.white,
           ),
+          localizationsDelegates: const [
+            I18n.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+      ///设置支持的语言
+          supportedLocales: I18n.delegate.supportedLocales,
+      ///设置默认展示语言
+      localeResolutionCallback:
+      I18n.delegate.resolution(fallback: const Locale('zh', 'CN')),
         ));
   }
 

@@ -85,6 +85,7 @@ abstract class BaseViewModel<T> extends FinalBaseViewModel {
           _isLoadDateSuccess = true;
           _dataBean = event.data;
           _controller?.add(event.data!);
+          notifyListeners(); //通知刷新数据 会对整个viewModel刷新
         }
       });
     } on Exception catch (msg) {

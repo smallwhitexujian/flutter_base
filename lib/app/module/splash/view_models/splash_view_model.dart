@@ -43,7 +43,7 @@ class SplashViewModel extends BaseViewModel {
       _entity = event as ProdConfigJsonEntity;
       //更新全局静态变量
       Global.getAppConfig().updateConfigBean(_entity);
-      goNext(_context);
+      // goNext(_context);
     });
   }
 

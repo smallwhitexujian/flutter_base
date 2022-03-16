@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_base/app/common/global.dart';
 import 'package:flutter_base/app/route/routes_constants.dart';
-import 'package:flutter_base/framework/base_lib_plugin.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 import 'package:flutter_base/generated/json/base/json_convert_content.dart';
 
