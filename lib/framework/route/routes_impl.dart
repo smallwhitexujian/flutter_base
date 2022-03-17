@@ -17,6 +17,23 @@ class Routesimpl {
     });
   }
 
+  ///[TransitionType]给页面进入时配置一个入场动画
+  ///TransitionType.inFromLeft //左侧进入
+  ///TransitionType.inFromRight //右侧进入
+  ///TransitionType.inFromBottom //底部进入 默认入场动画
+  ///TransitionType.native //无进入动画
+  ///TransitionType.nativeModal //同上
+  ///TransitionType.fadeIn //渐显动画
+  ///TransitionType.custom //自定义
+  ///TransitionType.material //感觉和上面几种一样 无特别动画效果
+  ///TransitionType.materialFullScreenDialog //感觉和上面几种一样 无特别动画效果
+  ///TransitionType.cupertino //右进右出
+  ///TransitionType.cupertinoFullScreenDialog //底部进 底部出 下个页面返回值变化
+  ///[transitionDuration] 入场动画执行时间
+  ///[transitionBuilder] 自定义入场动画
+  ///[clearStack] 是否退出当前页面
+  ///[replace]
+  ///[path] 地址
   ///对参数进行encode，解决参数中有特殊字符，影响fluro路由匹配
   ///所有页面跳转通过该方法，便于统一管理
   static Future navigateTo(BuildContext context, String path,
@@ -34,7 +51,7 @@ class Routesimpl {
         if (index == 0) {
           query = "?";
         } else {
-          query = query + "&";
+          query = query + "\&";
         }
         query += "$key=$value";
         index++;

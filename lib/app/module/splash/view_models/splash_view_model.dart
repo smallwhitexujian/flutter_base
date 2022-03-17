@@ -48,8 +48,8 @@ class SplashViewModel extends BaseViewModel {
   }
 
   Future<void>? goNext(content) {
-    return RouteUtils.goNavigateTo(content, RoutesConstants.homePage,
-        clearStack: true, replace: true);
+    return RouteUtils.goNavigateTo(content, RoutesConstants.loginPage,
+        clearStack: true, replace: false);
   }
 
   @override

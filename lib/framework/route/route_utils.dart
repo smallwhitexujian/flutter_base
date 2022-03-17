@@ -30,6 +30,7 @@ class RouteUtils {
     return Routesimpl.getFluroRouter().generator(routeSettings);
   }
 
+  ///路由跳转
   static Future goNavigateTo(BuildContext context, String path,
       {Map<String, dynamic>? params,
       bool replace = false,
@@ -51,7 +52,7 @@ class RouteUtils {
 class DefineConfig {
   String url; //注册路径
   Widget widget; //指定的路径
-  TransitionType? transitionType;
+  TransitionType? transitionType; //进入界面方式 一般默认淡入TransitionType.fadeIn
   Duration? transitionDuration;
   RouteTransitionsBuilder? transitionBuilder;
 

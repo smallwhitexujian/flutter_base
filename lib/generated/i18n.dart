@@ -33,11 +33,9 @@ class I18n implements WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
-  /// "Hello!"
-  String get hello => "Hello!";
-
-  /// "Hello"
-  String greetTo(String name) => "Hello " + name;
+  /// "Login means that you agree to the User Agreement & Privacy Policy"
+  String get tvPrivacyPolicy =>
+      "Login means that you agree to the User Agreement & Privacy Policy";
 }
 
 class _I18n_en_US extends I18n {
@@ -50,13 +48,10 @@ class _I18n_en_US extends I18n {
 class _I18n_zh_CN extends I18n {
   const _I18n_zh_CN();
 
-  /// "你好!"
+  /// "Login berarti Anda setuju dengan User Agreement & Privacy Policy."
   @override
-  String get hello => "你好!";
-
-  /// "你好 { name}"
-  @override
-  String greetTo(String name) => "你好 " + name;
+  String get tvPrivacyPolicy =>
+      "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
@@ -65,9 +60,10 @@ class _I18n_zh_CN extends I18n {
 class _I18n_id_ID extends I18n {
   const _I18n_id_ID();
 
-  /// "Hello {name}"
+  /// "Login berarti Anda setuju dengan User Agreement & Privacy Policy."
   @override
-  String greetTo(String name) => "Hello {name}";
+  String get tvPrivacyPolicy =>
+      "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
@@ -76,9 +72,10 @@ class _I18n_id_ID extends I18n {
 class _I18n_ms_MY extends I18n {
   const _I18n_ms_MY();
 
-  /// "Hello {name}"
+  /// "Login berarti Anda setuju dengan User Agreement & Privacy Policy."
   @override
-  String greetTo(String name) => "Hello {name}";
+  String get tvPrivacyPolicy =>
+      "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
@@ -87,9 +84,10 @@ class _I18n_ms_MY extends I18n {
 class _I18n_ar_SA extends I18n {
   const _I18n_ar_SA();
 
-  /// "Hello {name}"
+  /// "Login means that you agree to the User Agreement & Privacy Policy"
   @override
-  String greetTo(String name) => "Hello {name}";
+  String get tvPrivacyPolicy =>
+      "Login means that you agree to the User Agreement & Privacy Policy";
 
   @override
   TextDirection get textDirection => TextDirection.rtl;
@@ -98,9 +96,10 @@ class _I18n_ar_SA extends I18n {
 class _I18n_vi_VN extends I18n {
   const _I18n_vi_VN();
 
-  /// "Hello {name}"
+  /// "Login berarti Anda setuju dengan User Agreement & Privacy Policy."
   @override
-  String greetTo(String name) => "Hello {name}";
+  String get tvPrivacyPolicy =>
+      "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
@@ -109,9 +108,10 @@ class _I18n_vi_VN extends I18n {
 class _I18n_pt_PT extends I18n {
   const _I18n_pt_PT();
 
-  /// "Hello {name}"
+  /// "Login berarti Anda setuju dengan User Agreement & Privacy Policy."
   @override
-  String greetTo(String name) => "Hello {name}";
+  String get tvPrivacyPolicy =>
+      "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

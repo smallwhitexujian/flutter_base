@@ -1,4 +1,5 @@
 import 'package:flutter_base/app/module/home/view/home_main.dart';
+import 'package:flutter_base/app/module/login/view/login_view.dart';
 import 'package:flutter_base/app/module/splash/view/splash_view.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 
@@ -14,7 +15,9 @@ class RoutesConstants {
   ///[widget] 必须要给
   static List<DefineConfig> list = [
     //启动界面
-    DefineConfig(root, SplashView(), transitionType: TransitionType.fadeIn),
+    DefineConfig(root, SplashView()),
+    //登陆页面
+    DefineConfig(loginPage, LoginView()),
     //首页
     DefineConfig(homePage, const HomeMain())
   ];
