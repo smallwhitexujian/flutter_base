@@ -16,7 +16,13 @@ class LoginView extends BaseStatefulView<LoginViewModel> {
       //页面布局
       body: Stack(
         children: [
-          Image.asset(AssetsUtils.loadAssetsImg("login_bg", postfix: ".webp")),
+          Positioned.fill(
+            child: Image.asset(
+              AssetsUtils.loadAssetsImg("login_bg", postfix: ".webp"),
+              fit: BoxFit.fill,
+              repeat: ImageRepeat.repeat,
+            ),
+          ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Padding(
               padding: const EdgeInsets.only(top: 120),
