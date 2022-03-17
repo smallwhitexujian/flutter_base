@@ -1,28 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base/app/module/splash/view_models/splash_view_model.dart';
 import 'package:flutter_base/framework/core/base/base_stateful_view.dart';
-import 'package:flutter_base/framework/lib_base.dart';
-import 'package:flutter_base/generated/i18n.dart';
+import 'package:flutter_base/framework/utils/assets_utils.dart';
 
 class SplashView extends BaseStatefulView<SplashViewModel> {
   SplashView({Key? key}) : super(key: key);
   late SplashViewModel _viewModel;
   @override
   Widget buildView(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(I18n.of(context).greetTo("name")),
+    return Container(
+      color: Colors.white,
+      child: Center(
+        child: Image.asset(
+          AssetsUtils.loadAssetsImg("splash", postfix: ".webp"),
+          width: 200.0,
+          height: 200.0,
         ),
-        Center(
-          child: Image.asset(
-            AssetsUtils.loadAssetsImg('logo'),
-            width: 200,
-            height: 200,
-          ),
-        ),
-      ],
+      ),
     );
   }
 

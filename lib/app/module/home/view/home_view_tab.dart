@@ -3,8 +3,6 @@ import 'package:flutter_base/app/module/home/view_models/home_view_model.dart';
 import 'package:flutter_base/framework/lib_base.dart';
 import 'package:flutter_base/framework/utils/screen_utils.dart';
 
-import '../../../../framework/lib_base.dart';
-
 class HomeViewTab extends StatefulWidget {
   const HomeViewTab({Key? key}) : super(key: key);
 
