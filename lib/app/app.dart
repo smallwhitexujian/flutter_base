@@ -34,28 +34,38 @@ class _AppState extends State<App> {
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }
 
-    return SdkManager.initScreenUtil(() => MaterialApp(
-          // Scaffold 定义导航头部和页面主要内容
-          onGenerateRoute: RouteUtils.getGenerators, //指定路由启动页面默认root
-          ///home 这里不需要设置如果设置了 router 默认跳转启动界面不生效。
-          theme: ThemeData(
-            //导航栏和状态栏的颜色
-            primaryColor: Colors.white,
-            //主题颜色
-            primarySwatch: AppConstants.white,
-          ),
-          localizationsDelegates: const [
-            I18n.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-      ///设置支持的语言
-          supportedLocales: I18n.delegate.supportedLocales,
-      ///设置默认展示语言
-      localeResolutionCallback:
-      I18n.delegate.resolution(fallback: const Locale('zh', 'CN')),
-        ));
+    return SdkManager.initScreenUtil(
+      () => MaterialApp(
+        // Scaffold 定义导航头部和页面主要内容
+        onGenerateRoute: RouteUtils.getGenerators, //指定路由启动页面默认root
+        ///home 这里不需要设置如果设置了 router 默认跳转启动界面不生效。
+        theme: ThemeData(
+          //导航栏和状态栏的颜色
+          primaryColor: Colors.white,
+          //主题颜色
+          primarySwatch: AppConstants.white,
+        ),
+
+        //国际化
+        localizationsDelegates: const [
+          I18n.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+
+        ///设置支持的语言
+        supportedLocales: I18n.delegate.supportedLocales,
+
+        ///设置默认展示语言
+        localeResolutionCallback:
+            I18n.delegate.resolution(fallback: const Locale('zh', 'CN')),
+
+        navigatorObservers: [FlutterSmartDialog.observer],
+        // here
+        builder: FlutterSmartDialog.init(),
+      ),
+    );
   }
 
   @override

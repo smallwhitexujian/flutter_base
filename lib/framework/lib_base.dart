@@ -26,6 +26,9 @@ export 'package:flutter_dio_module/lib_dio.dart';
 ///provider
 export 'package:provider/provider.dart';
 
+///flutter_smart_dialog
+export 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+
 //------------------------------------------------------------------------------
 export 'package:flutter_base/framework/route/routes_impl.dart';
 export 'package:flutter_base/framework/utils/assets_utils.dart';

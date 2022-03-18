@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_base/app/module/login/viewModel/login_view_model.dart';
 import 'package:flutter_base/framework/core/base/base_stateful_view.dart';
 import 'package:flutter_base/framework/lib_base.dart';
+import 'package:flutter_base/framework/utils/dialog/dialog_utils.dart';
 import 'package:flutter_base/framework/utils/toastUtils/toast_utils.dart';
 import 'package:flutter_base/framework/widget/widget_uitls.dart';
 import 'package:flutter_base/generated/i18n.dart';
@@ -12,10 +13,13 @@ class LoginView extends BaseStatefulView<LoginViewModel> {
 
   @override
   Widget buildView(BuildContext context) {
+    //页面布局
     return Scaffold(
-      //页面布局
+      resizeToAvoidBottomInset: false, // 解决键盘顶起页面
+      //帧布局
       body: Stack(
         children: [
+          //这个主要用于填满整个屏幕
           Positioned.fill(
             child: Image.asset(
               AssetsUtils.loadAssetsImg("login_bg", postfix: ".webp"),
@@ -77,6 +81,23 @@ class LoginView extends BaseStatefulView<LoginViewModel> {
                       const Padding(padding: EdgeInsets.only(right: 50)),
                     ],
                   )),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 36),
+                child: Text.rich(TextSpan(
+                    text: I18n.of(context).otherLogin,
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = (() {
+                        DialogUtils.showLoginDialog(() {
+                          ToastUtils()
+                            ..initToast(context)
+                            ..showShort("close");
+                        });
+                      }),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        decoration: TextDecoration.underline,
+                        fontSize: 14.0))),
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 40, right: 40, bottom: 24),
                 child: Text.rich(TextSpan(

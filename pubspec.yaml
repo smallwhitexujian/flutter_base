@@ -49,12 +49,11 @@ dependencies:
   # 权限检查库
   permission_handler: ^9.2.0
   # dialog
-  flutter_custom_dialog: ^1.2.0
+  flutter_smart_dialog: ^3.4.0
   # 路由
   fluro: ^2.0.3
   # 屏幕适配方案
   flutter_screenutil: ^5.3.1
-
 
   # consumer 就是为你准备的一款高性能、极简的状态管理库。
   # consumer: ^2.3.0

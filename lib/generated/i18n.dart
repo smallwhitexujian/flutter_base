@@ -36,6 +36,9 @@ class I18n implements WidgetsLocalizations {
   /// "Login means that you agree to the User Agreement & Privacy Policy"
   String get tvPrivacyPolicy =>
       "Login means that you agree to the User Agreement & Privacy Policy";
+
+  /// "Other Login"
+  String get otherLogin => "Other Login";
 }
 
 class _I18n_en_US extends I18n {
@@ -53,6 +56,10 @@ class _I18n_zh_CN extends I18n {
   String get tvPrivacyPolicy =>
       "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
 
+  /// "其他登陆"
+  @override
+  String get otherLogin => "其他登陆";
+
   @override
   TextDirection get textDirection => TextDirection.ltr;
 }
@@ -64,6 +71,10 @@ class _I18n_id_ID extends I18n {
   @override
   String get tvPrivacyPolicy =>
       "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
+
+  /// "Other Login"
+  @override
+  String get otherLogin => "Other Login";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
@@ -77,6 +88,10 @@ class _I18n_ms_MY extends I18n {
   String get tvPrivacyPolicy =>
       "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
 
+  /// "Other Login"
+  @override
+  String get otherLogin => "Other Login";
+
   @override
   TextDirection get textDirection => TextDirection.ltr;
 }
@@ -88,6 +103,10 @@ class _I18n_ar_SA extends I18n {
   @override
   String get tvPrivacyPolicy =>
       "Login means that you agree to the User Agreement & Privacy Policy";
+
+  /// "Other Login"
+  @override
+  String get otherLogin => "Other Login";
 
   @override
   TextDirection get textDirection => TextDirection.rtl;
@@ -101,6 +120,10 @@ class _I18n_vi_VN extends I18n {
   String get tvPrivacyPolicy =>
       "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
 
+  /// "Other Login"
+  @override
+  String get otherLogin => "Other Login";
+
   @override
   TextDirection get textDirection => TextDirection.ltr;
 }
@@ -112,6 +135,10 @@ class _I18n_pt_PT extends I18n {
   @override
   String get tvPrivacyPolicy =>
       "Login berarti Anda setuju dengan User Agreement & Privacy Policy.";
+
+  /// "Other Login"
+  @override
+  String get otherLogin => "Other Login";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
